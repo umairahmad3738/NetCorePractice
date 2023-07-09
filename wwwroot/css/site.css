@@ -28,3 +28,7 @@ body {
 .title-case{
     text-transform: capitalize
 }
+
+.imageThumbnail{
+    height: 200px;
+}

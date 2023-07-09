@@ -3,7 +3,24 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Employee Details";
-    var photoPath = "~/images/" + Model.Employee.PhotoPath ?? "avatarMale.jpg";
+
+    string photoPath = null;
+    if (Model.Employee.PhotoPath == "")
+    {
+        if (Model.Employee.Gender == GenderEnums.Male)
+        {
+            photoPath = "~/images/avatarMale.jpg";
+        }
+        else
+        {
+            photoPath = "~/images/avatarFemale.jpg";
+        }
+    }
+    else
+    {
+        photoPath = "~/images/" + Model.Employee.PhotoPath;
+    }
+    
 }
 <h3>@Model.PageTitle</h3>
         <div class="row justify-content-center m-3">

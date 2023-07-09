@@ -3,16 +3,41 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Employee List";
 }
+
+
 <div class="card-deck">
     @foreach (var employee in Model)
     {
+        string photoPath = null;
+        
+        if (employee.PhotoPath == "")
+        {
+            if (employee.Gender == GenderEnums.Male)
+            {
+                photoPath = "~/images/avatarMale.jpg";
+            }
+            else
+            {
+                photoPath = "~/images/avatarFemale.jpg";
+            }
+        }
+        else
+        {
+            photoPath = "~/images/" + employee.PhotoPath;
+        }
         <div class="card-m3" style="padding:5px">
             <div class="card-header">
                 <h3 class="text-center">@employee.Name</h3>
             </div>
             @{
-                if (employee.Gender == GenderEnums.Female){<img class="card-img-top" src="~/css/avatarFemale.jpg">}
-                else{<img class="card-img-top" src="~/css/avatarMale.jpg">}
+                if (employee.Gender == GenderEnums.Female)
+                {
+                    <img class="card-img-top imageThumbnail" src="@photoPath" asp-append-version="true">
+                }
+                else
+                {
+                    <img class="card-img-top imageThumbnail" src="@photoPath" asp-append-version="true">
+                }
             }
             <div class="card-footer text-center">
                 <a asp-controller="home" asp-action="details" asp-route-id = "@employee.Id" class="btn btn-primary">View</a>

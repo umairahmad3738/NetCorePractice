@@ -12,10 +12,10 @@ namespace kudvenkitPractice.Controllers
         private readonly IWebHostEnvironment hostingEnvironment;
 
         public HomeController(IEmployeeRepository employeeRepository,
-                              IWebHostEnvironment hostingEnvironment)
+                             IWebHostEnvironment hostingEnvironment)//this interface was used to get wwwroot folder path
         {
             _employeeRepository = employeeRepository;
-            this.hostingEnvironment = hostingEnvironment;
+            this.hostingEnvironment = hostingEnvironment; 
         }
 
         [Route("")]
