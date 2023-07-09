@@ -1,0 +1,37 @@
+﻿@model HomeDetailsViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Employee Details";
+    var photoPath = "~/images/" + Model.Employee.PhotoPath ?? "avatarMale.jpg";
+}
+<h3>@Model.PageTitle</h3>
+        <div class="row justify-content-center m-3">
+            <div class ="col-sm-4   ">
+                <div class="card">
+                    <div class="card-header">
+                        <h1 class="text-center">@Model.Employee.Name</h1>
+                    </div>
+                    <div class="card-body">
+                        @{
+                            if (Model.Employee.Gender == GenderEnums.Female){<img class="card-img-top" src="~/css/avatarFemale.jpg" />}
+                            else{<img class="card-img-top" src="@photoPath " asp-append-version = "true"/>}
+                        }
+                        <h4 class="">Employee ID: @Model.Employee.Id</h4>
+                        <h4 class="">Employee Name: @Model.Employee.Name</h4>
+                        <h4 class="">Department: @Model.Employee.Department</h4>
+                    </div>
+                 <div class="card-footer text-center">
+                     <a asp-controller="home" asp-action="index" class="btn btn-primary">Back</a>
+                     <a asp-controller ="home" asp-action="details" class="btn btn-primary">Edit</a>
+                     <a href="#" class="btn btn-danger">Delete</a>
+                 </div>
+                </div>
+            </div>
+
+        </div>
+        @section Scripts{
+            <script src="~/js/customscript.js"></script>
+        }
+
+

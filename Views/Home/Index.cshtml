@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Employee>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Employee List";
+}
+<div class="card-deck">
+    @foreach (var employee in Model)
+    {
+        <div class="card-m3" style="padding:5px">
+            <div class="card-header">
+                <h3 class="text-center">@employee.Name</h3>
+            </div>
+            @{
+                if (employee.Gender == GenderEnums.Female){<img class="card-img-top" src="~/css/avatarFemale.jpg">}
+                else{<img class="card-img-top" src="~/css/avatarMale.jpg">}
+            }
+            <div class="card-footer text-center">
+                <a asp-controller="home" asp-action="details" asp-route-id = "@employee.Id" class="btn btn-primary">View</a>
+                <a asp-controller="home" asp-action="updateemployee" asp-route-id = "@employee.Id" class="btn btn-primary">Edit</a>
+                <a asp-controller="home" asp-action="deleteemployee" asp-route-id="@employee.Id" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+
+    }
+</div>
