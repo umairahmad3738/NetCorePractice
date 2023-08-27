@@ -1,10 +1,10 @@
-﻿using kudvenkitPractice.ViewModels;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.Globalization;
 using kudvenkitPractice.Repositories;
+using kudvenkitPractice.Models;
 //using System.Reflection.Metadata.Ecma335;
 
-namespace kudvenkitPractice.Models
+namespace kudvenkitPractice.ViewModels
 {
     public class MockEmployeeRepository : IEmployeeRepository
     {

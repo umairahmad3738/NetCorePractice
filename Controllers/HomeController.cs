@@ -79,15 +79,21 @@ namespace kudvenkitPractice.Controllers
             return View();
         }
         [HttpGet]
-        [Route("Home/EditEmployee/{id?}")]
-        public ActionResult UpdateEmployee(int id)
+        [Route("Home/Edit/{id?}")]
+        public ViewResult Edit(int id)
         {
             Employee emp = _employeeRepository.GetEmployee(id);
-            if (emp != null && !emp.Equals(_employeeRepository.UpdateEmployee(emp)))
+            EmployeeEditViewModel empEditViewModel = new EmployeeEditViewModel
             {
-                return RedirectToAction("details", new { id = emp.Id });
-            }
-            return View();
+                ID = emp.Id,
+                Name = emp.Name,
+                Email = emp.Email,
+                Department = emp.Department,
+                Gender = emp.Gender,
+                ExistingPhotoPath = emp.PhotoPath
+            };
+
+            return View(empEditViewModel);
         }
     }
 }
