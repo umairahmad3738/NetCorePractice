@@ -1,8 +1,7 @@
-﻿using Microsoft.AspNetCore;
-using kudvenkitPractice.Models;
+﻿using kudvenkitPractice.Models;
+using kudvenkitPractice.Repositories;
 using kudvenkitPractice.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using kudvenkitPractice.Repositories;
 namespace kudvenkitPractice.Controllers
 {
 
@@ -15,7 +14,7 @@ namespace kudvenkitPractice.Controllers
                              IWebHostEnvironment hostingEnvironment)//this interface was used to get wwwroot folder path
         {
             _employeeRepository = employeeRepository;
-            this.hostingEnvironment = hostingEnvironment; 
+            this.hostingEnvironment = hostingEnvironment;
         }
 
         [Route("")]
@@ -53,7 +52,7 @@ namespace kudvenkitPractice.Controllers
 
         [HttpPost]
         [Route("Home/CreateEmployee/{id?}")] //Attribute Routing
-        public ActionResult CreateEmployee(EmployeeCreateViewModel  emp)
+        public ActionResult CreateEmployee(EmployeeCreateViewModel emp) 
         {
             if (ModelState.IsValid) //Validation
             {
@@ -97,3 +96,4 @@ namespace kudvenkitPractice.Controllers
         }
     }
 }
+//KudVenkitPractice - VDO#54-Edit Employee
