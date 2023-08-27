@@ -31,4 +31,5 @@ body {
 
 .imageThumbnail{
     height: 200px;
+    width: auto;
 }

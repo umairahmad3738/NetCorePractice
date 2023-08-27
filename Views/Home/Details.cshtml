@@ -4,8 +4,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Employee Details";
 
+
     string photoPath = null;
-    if (Model.Employee.PhotoPath == "")
+    photoPath = Model.SetEmployeeImage(Model.Employee.PhotoPath, Model.Employee.Gender.ToString());
+
+    if (string.IsNullOrEmpty(Model.Employee.PhotoPath))
     {
         if (Model.Employee.Gender == GenderEnums.Male)
         {
@@ -40,7 +43,7 @@
                     </div>
                  <div class="card-footer text-center">
                      <a asp-controller="home" asp-action="index" class="btn btn-primary">Back</a>
-                     <a asp-controller ="home" asp-action="details" class="btn btn-primary">Edit</a>
+                     <a asp-controller ="home" asp-action="edit" asp-route-id ="@Model.Employee.Id" class="btn btn-primary">Edit</a>
                      <a href="#" class="btn btn-danger">Delete</a>
                  </div>
                 </div>

@@ -2,7 +2,7 @@
 
 namespace kudvenkitPractice.Models
 {
-    public class EmployeeCreateViewModel
+    public class EmployeeCreateViewModel 
     {
         [Required]
         [MaxLength(50, ErrorMessage = "Name cannot exceed 50 characters.")]
@@ -15,5 +15,7 @@ namespace kudvenkitPractice.Models
         [Display(Name = "Office Email")]
         public string Email { get; set; }
         public IFormFile Photo { get; set; }
+
+       
     }
 }
